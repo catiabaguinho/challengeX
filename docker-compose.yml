@@ -19,7 +19,7 @@ services:
       context: ./python
       dockerfile: Dockerfile
     container_name: "centos"
-    command: python program.py
+    command: python load_data.py
     volumes:
       - ./tmp/rawdata:/usr/rawdata
     restart: always
