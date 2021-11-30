@@ -6,4 +6,5 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY file.txt /code/
 COPY . /code/
-
+ENTRYPOINT ["python"]
+CMD ["python", "load_data.py"] 

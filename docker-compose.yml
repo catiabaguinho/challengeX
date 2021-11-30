@@ -14,12 +14,11 @@ services:
       - 5432:5432
     networks:
       - postgres
-  centos:    
+  servercentos:    
     build: 
       context: ./python
       dockerfile: Dockerfile
-    container_name: "centos"
-    command: python load_data.py
+    container_name: "servercentos"
     volumes:
       - ./tmp/rawdata:/usr/rawdata
     restart: always

@@ -1,18 +1,18 @@
 import csv
 import psycopg2
-# import socket
-# import time
+import socket
+import time
 
-# port = int(5432) # 5432
+port = int(5432) # 5432
 
-# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# while True:
-#     try:
-#         s.connect(('db', port))
-#         s.close()
-#         break
-#     except socket.error as ex:
-#         time.sleep(0.1)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+while True:
+    try:
+        s.connect(('db', port))
+        s.close()
+        break
+    except socket.error as ex:
+        time.sleep(0.1)
 
 
 conn = psycopg2.connect("host='db' port='5432' dbname='test_db' user='pgadmin' password='Abc.1234%'")
