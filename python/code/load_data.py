@@ -11,18 +11,19 @@ while True:
         s.connect(('db', port))
         s.close()
         break
-    except socket.error as ex:
-        time.sleep(0.1)
-
+    except socket.error as err:
+        time.sleep(15)
+        print ("Error puerto  BD", err)
 try:
     conn = psycopg2.connect("host='db' port='5432' dbname='test_db' user='pgadmin' password='Abc.1234%'")
     cur = conn.cursor()
 except Exception as err:
-        print ("Error conectado a BD", err)
+        print ("Error conectando a BD", err)
 
 
 try:
     cur.execute("""
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
     CREATE TABLE IF NOT EXISTS public.personas
     (
