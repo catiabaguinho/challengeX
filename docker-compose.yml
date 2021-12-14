@@ -5,7 +5,6 @@ services:
     container_name: "postgresql"
     volumes:
       - ./pg_data:/var/lib/postgresql/data 
-      #- ./tmp/db:/var/lib/postgresql/data
     restart: always
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
@@ -25,9 +24,9 @@ services:
     volumes:
       - ./tmp/rawdata:/usr/rawdata
     restart: always   
+    command: python "/code/load_data.py"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    command: python "/code/load_data.py"
     depends_on:
       - db  
     networks:
