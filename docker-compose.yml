@@ -23,7 +23,6 @@ services:
     container_name: "servercentos"
     volumes:
       - ./tmp/rawdata:/usr/rawdata
-    restart: always   
     command: python "/code/load_data.py"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
